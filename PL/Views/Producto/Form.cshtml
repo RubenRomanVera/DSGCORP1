@@ -1,0 +1,57 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "Form";
+}
+
+<h2>Producto</h2>
+<br>
+<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Form", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div hidden class="col">
+                    <div class="col-md-4 col-lg-12 col-sm-6">
+                        @Html.LabelFor(model => model.IdProducto)
+                        @Html.TextBoxFor(model => model.IdProducto, new { @class = "form-control", @id = "txtIdProducto" })
+                        @Html.ValidationMessageFor(model => model.IdProducto)
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-md-4 col-lg-12 col-sm-6">
+                        @Html.LabelFor(model => model.Nombre)
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtNombre" })
+                        @Html.ValidationMessageFor(model => model.Nombre)
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-md-4 col-lg-12 col-sm-6">
+                        @Html.LabelFor(model => model.Stock)
+                        @Html.TextBoxFor(model => model.Stock, new { @class = "form-control", @id = "txtStock" })
+                        @Html.ValidationMessageFor(model => model.Stock)
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-md-4 col-lg-12 col-sm-6">
+                        @Html.LabelFor(model => model.Precio)
+                        @Html.TextBoxFor(model => model.Precio, new { @class = "form-control", @id = "txtPrecio" })
+                        @Html.ValidationMessageFor(model => model.Precio)
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-md-4 col-lg-12 col-sm-6">
+                        @Html.LabelFor(model => model.Descripcion)
+                        @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control", @id = "txtPrecio" })
+                        @Html.ValidationMessageFor(model => model.Descripcion)
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-md-4 col-lg-12 col-sm-6">
+                        <input type="submit" value="Guardar" class="btn btn-success" />
+                        @Html.ActionLink("Regresar", "GetAll", "Producto", htmlAttributes: new {@class="btn btn-danger"})
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

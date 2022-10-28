@@ -1,0 +1,38 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Producto</h2>
+
+<div style="float:right;">
+    @Html.ActionLink("+","Form","Producto",htmlAttributes:new {@class="btn btn-success" })
+</div>
+
+<br>
+
+<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <td>Editar</td>
+            <td hidden>IdProducto</td>
+            <td>Nombre</td>
+            <td>Stock</td>
+            <td>Precio</td>
+            <td>Descripción</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ML.Producto producto in Model.Productos) {
+        <tr>
+            <td><a class="btn btn-warning" href="@Url.Action("Form", "Producto", new {IdProducto=producto.IdProducto})"></a></td>
+            <td hidden>@producto.IdProducto</td>
+            <td>@producto.Nombre</td>
+            <td>@producto.Stock</td>
+            <td>@producto.Precio</td>
+            <td>@producto.Descripcion</td>
+            <td><a class="btn btn-danger" href="@Url.Action("Delete", "Producto", new {IdProducto=producto.IdProducto})" onclick="return confirm('¿Estas seguro que deseas eliminar el registro?')"></a></td>
+        </tr>
+        }
+    </tbody>
+</table>

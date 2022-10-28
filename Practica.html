@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ejercicio</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <h1>Cree su tabla</h1>
+                <h4>Ingrese la dimención:</h4>
+                <input class="form-control" type="number" id="filas" /></br>
+                <button type="button" onclick="CrearTabla()" class="btn btn-warning">Generar</button>
+            </div>
+            <br />
+            <div class="col-sm-10">
+                <div id="Tabla"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <label id="resultado"></label>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function CrearTabla() {
+            var Filas = $("#Filas").val();
+            var Tabla = "";
+            Tabla += "<table class='table table-bordered'>";
+            for (var i; i <= Filas;i++) {
+                Tabla=
+            }
+        }
+    </script>
+</body>
+</html>

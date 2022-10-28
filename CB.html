@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title> Ejercicio jQuery </title>
+    <meta charset="utf-8">    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <h3>Crear tabla</h3>
+                <h5>Ingrese la dimensión de la tabla: </h5>            
+                <input type="number" id="Filas" class="form-control"></br>             
+                <button type="button" onclick="CrearTabla()" class="btn btn-success">Ejecutar</button>
+            </div>           
+            <br />
+            <div class="col-sm-10">
+                <div id="Tabla">
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <label id="resultado"></label>                              
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function CrearTabla() {
+            var Filas = $("#Filas").val();
+            var Tabla = "";
+            Tabla += "<table class = 'table table-bordered'>";
+            for (var i = 1; i <= Filas; i++) {
+                Tabla += "<tr class=' text-center'>";
+                for (var x = 1; x <= Filas; x++) {
+                    Tabla += "<td> <button type='button' onclick='GetPosicion()'  class='btn btn-info'> </button> </td>";
+                }
+                Tabla += "</tr>";
+            }
+            Tabla += "</Table";
+            $("#Tabla").html(Tabla);
+        }
+
+        function GetPosicion() {
+            $('table tr td').click(function GetPosicion() {
+                var Columnas = $(this).index() + 1;
+                var Filas = $(this).parent('tr').index() + 1;
+                $('#resultado').html('Fila: ' + Filas + ' Columna: ' + Columnas);
+            });
+        };
+
+    </script>
+
+</body>
+</html>
